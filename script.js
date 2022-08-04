@@ -1,7 +1,7 @@
 
 
 const container = document.getElementById('container');
-const btn = document.getElementById('btn');
+const btns = document.querySelectorAll('button');
 const colors = ['red', 'green', 'blue'];
 const SQUARES = squareNum();
 
@@ -23,14 +23,9 @@ function setColor(element) {
 }
 
 function getColor(){
-    return colors[0];
+    return colors[Math.floor(Math.random() * colors.length)];
 }
 
 function squareNum(){
    return parseInt(prompt("how many squares would you like?")) ** 2;
 }
-
-function reset(){
-    btn.addEventListener('click', () => SQUARES);
-}
-reset();
