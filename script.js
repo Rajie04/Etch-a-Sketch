@@ -2,7 +2,7 @@
 
 const container = document.getElementById('container');
 const btns = document.querySelectorAll('button');
-const colors = ['red', 'green', 'blue'];
+const colors = ['#e74c3c', '#8e44ad', '#3498db', '#e67e22', '#2ecc71'];
 const SQUARES = squareNum();
 
 
@@ -18,7 +18,7 @@ for(let i = 0; i < SQUARES; i++) {
 function setColor(element) {
     const color = getColor()
     element.style.background = color
-    element.style.boxShadow = `0 0 2px ${color}`;
+    element.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`;
     
 }
 
@@ -27,5 +27,11 @@ function getColor(){
 }
 
 function squareNum(){
-   return parseInt(prompt("how many squares would you like?")) ** 2;
+   let value = parseInt(prompt("Choose a number of squares between 1-100")) ** 2;
+   if (value > 100 ** 2){
+     alert("Value too high!");
+     return squareNum();
+} else{
+     return value
+}
 }
